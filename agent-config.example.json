@@ -1,0 +1,56 @@
+{
+  "data_dir": ".temp/platform",
+  "allowed_roots": ["."],
+  "allow_local_project_selection": false,
+  "model_name": "deepseek-flash",
+  "model_url": "http://127.0.0.1:11434/v1",
+  "model_key_env": "AI_AGENT_API_KEY",
+  "allow_remote_model": false,
+  "model_timeout": 60,
+  "model_provider": "auto",
+  "model_thinking": "enabled",
+  "reasoning_effort": "low",
+  "model_max_output_tokens": 8192,
+  "generation": {
+    "code_output_tokens": 131072,
+    "text_output_tokens": 32768,
+    "text_retry_output_tokens": 65536,
+    "code_timeout_seconds": 600,
+    "text_timeout_seconds": 180,
+    "text_retry_timeout_seconds": 300,
+    "max_batch_files": 8,
+    "batch_output_fraction": 0.5
+  },
+  "context_management": {
+    "enabled": true,
+    "tool_result_trigger_tokens": 48000,
+    "summary_trigger_tokens": 96000,
+    "context_window_tokens": 1048576,
+    "keep_recent_tool_results": 6,
+    "keep_recent_messages": 8,
+    "minimum_summary_tokens": 4096,
+    "summary_max_tokens": 4096,
+    "summary_retry_max_tokens": 8192,
+    "summary_target_characters": 2400
+  },
+  "powershell_image": "mcr.microsoft.com/dotnet/sdk:8.0",
+  "approval_seconds": 3600,
+  "sandbox_images": ["python:3.12-slim", "maven:3.9-eclipse-temurin-17", "mcr.microsoft.com/dotnet/sdk:8.0"],
+  "sandbox_timeout": 120,
+  "allow_mysql_test_network": false,
+  "mysql_test_image": "mysql:8.4",
+  "mysql_test_startup_seconds": 90,
+  "policy_version": "policy-v1",
+  "prompt_version": "prompt-v1",
+  "config_version": "config-v1",
+  "policy_rules": [
+    {"rule_id": "protect-deploy", "effect": "deny", "tools": ["apply_patch"], "paths": ["deploy/**", ".github/workflows/**"]}
+  ],
+  "team_policies": {},
+  "user_policies": {},
+  "mcp_servers": {
+    "project_files": {"enabled": true},
+    "mysql_readonly": {"enabled": false},
+    "bailian": {"enabled": false}
+  }
+}

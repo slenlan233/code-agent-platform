@@ -1,0 +1,13 @@
+{
+  "version": "real-model-v1",
+  "cases": [
+    {"id":"python_explain","fixture":"python","mode":"readonly","prompt":"读取代码，解释 add 函数的作用和所在文件。","expected_terms":["add","calculator.py"]},
+    {"id":"java_plan","fixture":"java","mode":"plan_only","prompt":"为 TodoService.normalizeTitle 规划 null、空白和去除首尾空格的测试。只给计划，不执行。","expected_terms":["normalizeTitle"]},
+    {"id":"memory_goal","fixture":"python","session":"memory","mode":"readonly","prompt":"记录需求：后续项目使用 MySQL 永久保存数据，不允许用内存数据替代。现在只确认需求，不修改代码。","expected_terms":["MySQL"]},
+    {"id":"memory_gap_1","fixture":"python","session":"memory","mode":"readonly","prompt":"解释当前加法函数的参数。"},
+    {"id":"memory_gap_2","fixture":"python","session":"memory","mode":"readonly","prompt":"说明当前 README 的测试命令。","expected_terms":["unittest"]},
+    {"id":"memory_gap_3","fixture":"python","session":"memory","mode":"readonly","prompt":"add 处理负数时做什么？"},
+    {"id":"memory_gap_4","fixture":"python","session":"memory","mode":"readonly","prompt":"add(0,0) 的结果是什么？只依据代码回答，不要声称执行过。"},
+    {"id":"memory_recall","fixture":"python","session":"memory","mode":"readonly","prompt":"这个对话最早约定用哪种数据库持久化？只回答之前的约定，不推荐新方案。","expected_terms":["MySQL"]}
+  ]
+}

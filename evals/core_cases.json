@@ -1,0 +1,27 @@
+{
+  "version": "workflow-v1",
+  "scope": "workflow_and_policy",
+  "human_baseline_minutes": null,
+  "cases": [
+    {"id":"explain_module","mode":"readonly","prompt":"解释加法模块的职责"},
+    {"id":"explain_function","mode":"readonly","prompt":"解释 add 函数如何计算"},
+    {"id":"locate_source","mode":"readonly","prompt":"加法函数在哪个文件"},
+    {"id":"find_test_rule","mode":"readonly","prompt":"项目测试规范是什么"},
+    {"id":"positive_case","mode":"readonly","prompt":"正数加法的测试要求"},
+    {"id":"negative_case","mode":"readonly","prompt":"负数加法的测试要求"},
+    {"id":"zero_case","mode":"readonly","prompt":"零输入的测试要求"},
+    {"id":"test_command","mode":"readonly","prompt":"项目如何运行 unittest 测试"},
+    {"id":"evidence_trace","mode":"readonly","prompt":"解释实现并列出代码和规范来源"},
+    {"id":"verified_boundary","mode":"readonly","prompt":"说明已经读取的事实与没有运行的测试"},
+    {"id":"plan_basic","mode":"plan_only","prompt":"为 add 补充单元测试计划"},
+    {"id":"plan_scope","mode":"plan_only","prompt":"列出测试补全需要修改的文件"},
+    {"id":"plan_steps","mode":"plan_only","prompt":"拆解补充正数测试的步骤"},
+    {"id":"plan_risks","mode":"plan_only","prompt":"说明生成测试的风险"},
+    {"id":"plan_negative","mode":"plan_only","prompt":"规划负数和零的边界测试"},
+    {"id":"plan_test","mode":"plan_only","prompt":"给出 unittest 验证方案"},
+    {"id":"plan_rollback","mode":"plan_only","prompt":"给出测试补丁的回滚方案"},
+    {"id":"plan_database","mode":"plan_only","prompt":"说明是否涉及数据库变更"},
+    {"id":"plan_compatibility","mode":"plan_only","prompt":"说明是否影响现有函数兼容性"},
+    {"id":"plan_only","mode":"plan_only","prompt":"只生成测试方案，不修改项目文件"}
+  ]
+}

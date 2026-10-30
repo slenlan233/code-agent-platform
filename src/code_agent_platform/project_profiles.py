@@ -1,0 +1,6 @@
+"""Public execution facts from the administrator's installed runtime, never secrets."""
+def execution_context(project):
+    data={"test_command":project["test_command"],"image":project["sandbox_image"],"database_test_profile":project.get("database_test_profile","none"),"project_files":"工作区副本可写；项目真实配置 .env 不交给模型或测试容器。"}
+    if project["sandbox_image"]=="ai-agent/spring-mysql-it:0.1":
+        data.update(java_version=17,spring_boot_parent="3.5.16",preinstalled_dependencies=["spring-boot-starter-web","spring-boot-starter-jdbc","flyway-core","flyway-mysql","mysql-connector-j (runtime)","spring-boot-starter-test (test)"],plugins={"spring-boot-maven-plugin":"由 parent 管理","maven-surefire-plugin":"3.5.4；显式 plugin dependency surefire-junit-platform:3.5.4；argLine=-Xmx384m -Djava.io.tmpdir=/tmp"},dependency_cache="/opt/m2 为预装只读 Maven 缓存。新项目使用上述依赖可离线验证；现有项目依赖不匹配时报告环境问题，不擅自降级依赖或弱化测试。",database_environment={"jdbc_url":"APP_JDBC_URL","business_user":"APP_DB_USER","business_password":"APP_DB_PASSWORD","flyway_user":"MIGRATION_DB_USER","flyway_password":"MIGRATION_DB_PASSWORD","test_network":"后端可以连接 mysql:3306/agent_it；每轮为独立测试库。业务账号只有 CRUD，迁移账号允许该库 DDL。","local_runtime":"实际开发使用单独的本机连接配置；若尚未准备，生成环境变量读取方式与启动说明，并明确还需配置，不能声称已经部署。"})
+    return data

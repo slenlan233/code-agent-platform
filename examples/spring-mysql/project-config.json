@@ -1,0 +1,6 @@
+{
+  "mcp_servers": ["project_files"],
+  "test_command": ["mvn", "-o", "-B", "-Dmaven.repo.local=/opt/m2", "verify"],
+  "sandbox_image": "ai-agent/spring-mysql-it:0.1",
+  "database_test_profile": "mysql"
+}

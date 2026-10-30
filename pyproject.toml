@@ -1,0 +1,51 @@
+[project]
+name = "code-agent-platform"
+version = "0.17.0"
+description = "Auditable AI coding tasks with approval and isolated verification"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alibabacloud-bailian20231229==1.8.2",
+    "bs4>=0.0.2",
+    "dashscope>=1.27.4",
+    "langchain>=1.4.7,<2.0",
+    "langchain-core>=1.7.0,<2.0",
+    "langchain-community>=0.4.2,<0.5",
+    "langchain-experimental>=0.4.2,<0.5",
+    "langchain-mcp-adapters>=0.3.2,<0.4",
+    "langchain-openai>=1.7.2,<2.0",
+    "langgraph>=1.2.17,<1.3",
+    "langgraph-checkpoint-mongodb>=0.5.1,<0.6",
+    "langgraph-checkpoint-redis>=0.5.2,<0.6",
+    "langgraph-checkpoint-sqlite>=3.1.2,<4.0",
+    "mcp>=1.30.0,<2.0",
+    "openai>=3.37.0,<4.0",
+    "pydantic>=2.13.4",
+    "pyautogui>=0.9.54; sys_platform == 'win32'",
+    "pygetwindow>=0.0.9; sys_platform == 'win32'",
+    "pyperclip>=1.9.0",
+    "pymysql>=1.2.0",
+    "requests>=2.32.0,<3.0",
+    "sqlalchemy>=2.0.52,<3.0",
+    "python-dotenv>=1.0.0,<2.0",
+    "psutil>=7.2.2,<8.0",
+    "jsonschema>=4.20,<5.0",
+    "selenium>=4.49.0",
+    "sqlglot>=28,<40",
+    "langchain-deepseek>=1.1.1,<2.0",
+]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.162.0,<1.0", "uvicorn>=0.30,<1.0"]
+postgres = ["psycopg[binary]>=3.2,<4", "langgraph-checkpoint-postgres>=3.0,<4"]
+graph = ["tree-sitter>=0.25,<0.27", "tree-sitter-java>=0.23,<0.24"]
+
+[project.scripts]
+ai-agent = "code_agent_platform.cli:main"
+
+[tool.uv.build-backend]
+module-name = "code_agent_platform"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
